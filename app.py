@@ -232,27 +232,34 @@ elif st.session_state.page == 'FakeNews':
         if news_input.strip() == "":
             st.warning("Please enter a news headline or article first.")
         else:
-            with st.spinner("Analyzing news..."):
+           with st.spinner("Searching news sources..."):
                 fake_model = load_fake_news_model()
-                label, confidence = analyze_news(news_input, fake_model)
+                label, confidence, total, sources = analyze_news(news_input, fake_model)
 
             confidence_percent = round(confidence * 100, 2)
             label_lower = label.lower()
 
             if label_lower == "real":
                 verdict = "REAL NEWS"
-                message = "This news appears to be credible and legitimate based on our AI analysis."
                 icon = "✅"
-            else:
+                message = f"Found in {total} real news sources worldwide."
+                sources_text = "Sources: " + ", ".join(sources) if sources else ""
+            elif label_lower == "fake":
                 verdict = "FAKE NEWS"
-                message = "This news appears to be false or misleading. Always verify from trusted sources before sharing."
                 icon = "❌"
+                message = "This headline was not found in any verified news source. It may be false or misleading."
+                sources_text = "Always verify news from trusted sources like BBC, Reuters, or AP News."
+            else:
+                verdict = "UNABLE TO CHECK"
+                icon = "⚠️"
+                message = "Could not connect to news database. Please try again."
+                sources_text = ""
 
             st.markdown(f"""
                 <div class="result-card">
                     <div class="emotion-label {label_lower}">{icon} {verdict}</div>
-                    <div class="confidence-text">Confidence: {confidence_percent}%</div>
-                    <div class="suggestion-box">💡 {message}</div>
+                    <div class="confidence-text">Confidence: {confidence_percent}% — Based on {total} sources found</div>
+                    <div class="suggestion-box">💡 {message}<br><br>{sources_text}</div>
                 </div>
             """, unsafe_allow_html=True)
 
