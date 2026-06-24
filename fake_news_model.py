@@ -1,43 +1,44 @@
 # fake_news_model.py
-# Fake news detection using keyword-based analysis
-# This approach is transparent, explainable, and works reliably for a Class 12 project
+# This file uses NewsAPI to check if a news headline is real
+# by searching it across 150,000+ real news sources worldwide
+
+import requests
+
+NEWS_API_KEY = "3f8b2ef9613e4cdb909dbe08784a351c"
 
 def load_fake_news_model():
-    # No heavy model needed - we return None and use keyword logic instead
+    # No model to load, we use NewsAPI instead
     return None
 
 def analyze_news(text, model=None):
-    fake_keywords = [
-        "miracle", "shocking", "you won't believe", "secret", "they don't want you to know",
-        "cure", "hoax", "conspiracy", "illuminati", "100% proven", "doctors hate",
-        "click here", "share before deleted", "banned", "cover up", "exposed",
-        "makes us horny", "overnight cure", "instant fix", "one weird trick",
-        "big pharma", "government hiding", "aliens confirmed", "end of the world",
-        "free iphone", "you have been selected", "earn money fast", "work from home guaranteed",
-        "obama", "biden", "trump" , "modi" , "deepstate", "satanic", "satanist",
-        "third eye", "reptilian", "flat earth", "vaccines cause", "5g causes",
-        "mind control", "chemtrails", "new world order", "crisis actor"
-    ]
-
-    real_keywords = [
-        "according to", "researchers found", "study shows", "scientists say",
-        "published in", "confirmed by", "official statement", "government announces",
-        "data shows", "evidence suggests", "experts say", "report says",
-        "nasa", "who", "cdc", "bbc", "reuters", "associated press",
-        "university", "journal", "peer reviewed", "statistics show"
-    ]
-
-    text_lower = text.lower()
-
-    fake_score = sum(1 for word in fake_keywords if word in text_lower)
-    real_score = sum(1 for word in real_keywords if word in text_lower)
-
-    if fake_score > real_score:
-        confidence = min(0.99, 0.70 + fake_score * 0.08)
-        return "FAKE", confidence
-    elif real_score > 0:
-        confidence = min(0.99, 0.70 + real_score * 0.06)
-        return "REAL", confidence
-    else:
-        # Neutral text - flag as needs verification
-        return "FAKE", 0.55
+    # Send the headline to NewsAPI and search for it
+    url = "https://newsapi.org/v2/everything"
+    
+    params = {
+        "q": text,
+        "apiKey": NEWS_API_KEY,
+        "pageSize": 5,
+        "language": "en"
+    }
+    
+    try:
+        response = requests.get(url, params=params)
+        data = response.json()
+        
+        total_results = data.get("totalResults", 0)
+        articles = data.get("articles", [])
+        
+        if total_results >= 3:
+            # Found in multiple real news sources = REAL
+            source_names = [a['source']['name'] for a in articles[:3]]
+            return "REAL", 0.92, total_results, source_names
+        elif total_results >= 1:
+            # Found in at least one source = possibly real
+            source_names = [a['source']['name'] for a in articles[:3]]
+            return "REAL", 0.65, total_results, source_names
+        else:
+            # Not found anywhere = likely fake
+            return "FAKE", 0.85, 0, []
+            
+    except Exception as e:
+        return "UNKNOWN", 0.0, 0, []
