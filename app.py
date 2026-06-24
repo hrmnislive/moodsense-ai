@@ -12,7 +12,6 @@ st.set_page_config(
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
         background-color: #0f0f0f;
@@ -87,6 +86,7 @@ st.markdown("""
     .neutral { color: #AAAAAA; }
     .real { color: #00CC66; }
     .fake { color: #FF4444; }
+    .unknown { color: #FFAA00; }
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
@@ -134,7 +134,7 @@ if st.session_state.page == 'Home':
     st.markdown("""
         <div class="hero">
             <h1>MoodSense AI</h1>
-            <p>An intelligent AI platform powered by Natural Language Processing — detecting emotions and fake news in real time.</p>
+            <p>An intelligent AI platform powered by Natural Language Processing — detecting emotions and verifying news in real time.</p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -151,7 +151,7 @@ if st.session_state.page == 'Home':
         st.markdown("""
             <div class="info-card">
                 <h3>Instant Results</h3>
-                <p>Get emotion or fake news results in seconds along with a confidence score and personalized suggestion.</p>
+                <p>Get emotion or news verification results in seconds along with a confidence score and personalized suggestion.</p>
             </div>
         """, unsafe_allow_html=True)
 
@@ -159,13 +159,13 @@ if st.session_state.page == 'Home':
         st.markdown("""
             <div class="info-card">
                 <h3>Fake News Detector</h3>
-                <p>Paste any news headline or article and our AI will classify it as REAL or FAKE with a confidence percentage.</p>
+                <p>Paste any news headline and our AI searches 150,000+ real news sources to verify if it is real or fake.</p>
             </div>
         """, unsafe_allow_html=True)
         st.markdown("""
             <div class="info-card">
-                <h3>Pretrained Models</h3>
-                <p>Uses HuggingFace DistilRoBERTa models trained on thousands of real-world sentences — zero custom training needed.</p>
+                <h3>Powered by AI + NewsAPI</h3>
+                <p>Uses HuggingFace pretrained models for emotion detection and NewsAPI for real-time news verification.</p>
             </div>
         """, unsafe_allow_html=True)
 
@@ -216,7 +216,7 @@ elif st.session_state.page == 'FakeNews':
     st.markdown("""
         <div class="hero">
             <h1>Fake News Detector</h1>
-            <p>Paste any news headline or article. The AI will tell you if it is Real or Fake.</p>
+            <p>Paste any news headline. Our AI searches 150,000+ real news sources to verify it instantly.</p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -224,15 +224,15 @@ elif st.session_state.page == 'FakeNews':
 
     news_input = st.text_area(
         label="",
-        placeholder="e.g. Scientists discover a cure for all cancers overnight...",
+        placeholder="e.g. NASA confirms water found on Mars...",
         height=150
     )
 
     if st.button("Check News"):
         if news_input.strip() == "":
-            st.warning("Please enter a news headline or article first.")
+            st.warning("Please enter a news headline first.")
         else:
-           with st.spinner("Searching news sources..."):
+            with st.spinner("Searching news sources worldwide..."):
                 fake_model = load_fake_news_model()
                 label, confidence, total, sources = analyze_news(news_input, fake_model)
 
@@ -242,7 +242,7 @@ elif st.session_state.page == 'FakeNews':
             if label_lower == "real":
                 verdict = "REAL NEWS"
                 icon = "✅"
-                message = f"Found in {total} real news sources worldwide."
+                message = f"Found in {total} verified news sources worldwide."
                 sources_text = "Sources: " + ", ".join(sources) if sources else ""
             elif label_lower == "fake":
                 verdict = "FAKE NEWS"
@@ -267,7 +267,7 @@ elif st.session_state.page == 'About':
     st.markdown("""
         <div class="hero">
             <h1>About</h1>
-            <p>A Class 12 AI project demonstrating how machines understand human emotions and detect fake news through NLP.</p>
+            <p>A Class 12 AI project demonstrating emotion detection and fake news verification using NLP and real-time APIs.</p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -276,24 +276,24 @@ elif st.session_state.page == 'About':
     st.markdown("""
         <div class="info-card">
             <h3>Project Goal</h3>
-            <p>To demonstrate how Artificial Intelligence and Natural Language Processing can identify human emotions from text and detect fake news — providing meaningful insights through a simple web application.</p>
+            <p>To demonstrate how Artificial Intelligence and Natural Language Processing can identify human emotions from text and verify news headlines in real time using live news databases.</p>
         </div>
     """, unsafe_allow_html=True)
     st.markdown("""
         <div class="info-card">
             <h3>Technology Stack</h3>
-            <p>Python, Streamlit, HuggingFace Transformers, DistilRoBERTa, RoBERTa, NLP</p>
+            <p>Python, Streamlit, HuggingFace Transformers, DistilRoBERTa, NewsAPI, NLP</p>
         </div>
     """, unsafe_allow_html=True)
     st.markdown("""
         <div class="info-card">
-            <h3>AI Models Used</h3>
-            <p>Emotion Detection: j-hartmann/emotion-english-distilroberta-base<br><br>Fake News Detection: hamzab/roberta-fake-news-classification</p>
+            <h3>AI Model Used</h3>
+            <p>Emotion Detection: j-hartmann/emotion-english-distilroberta-base — pretrained on thousands of real-world emotional sentences.<br><br>Fake News: NewsAPI searches 150,000+ verified global news sources in real time.</p>
         </div>
     """, unsafe_allow_html=True)
     st.markdown("""
         <div class="info-card">
             <h3>Developer</h3>
-            <p>Built as an Artificial Intelligence project for Class XII. Demonstrates real-world application of NLP and deep learning without any custom model training.</p>
+            <p>Built as an Artificial Intelligence project for Class XII. Demonstrates real-world application of NLP, deep learning, and live API integration.</p>
         </div>
     """, unsafe_allow_html=True)
