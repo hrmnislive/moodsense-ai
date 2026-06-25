@@ -1,7 +1,6 @@
 import streamlit as st
 from emotion_model import load_model, analyze_emotion
 from suggestions import get_suggestion
-from fake_news_model import load_fake_news_model, analyze_news
 
 st.set_page_config(
     page_title="MoodSense AI",
@@ -84,9 +83,6 @@ st.markdown("""
     .surprise { color: #FF9900; }
     .disgust { color: #66CC66; }
     .neutral { color: #AAAAAA; }
-    .real { color: #00CC66; }
-    .fake { color: #FF4444; }
-    .unknown { color: #FFAA00; }
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
@@ -116,7 +112,7 @@ st.markdown("""
 if 'page' not in st.session_state:
     st.session_state.page = 'Home'
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 with col1:
     if st.button("🏠 Home"):
         st.session_state.page = 'Home'
@@ -124,9 +120,6 @@ with col2:
     if st.button("🧠 Analyzer"):
         st.session_state.page = 'Analyzer'
 with col3:
-    if st.button("📰 Fake News"):
-        st.session_state.page = 'FakeNews'
-with col4:
     if st.button("ℹ️ About"):
         st.session_state.page = 'About'
 
@@ -134,7 +127,7 @@ if st.session_state.page == 'Home':
     st.markdown("""
         <div class="hero">
             <h1>MoodSense AI</h1>
-            <p>An intelligent AI platform powered by Natural Language Processing — detecting emotions and verifying news in real time.</p>
+            <p>An intelligent emotion detection system powered by Natural Language Processing and pretrained deep learning models.</p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -144,35 +137,35 @@ if st.session_state.page == 'Home':
     with col1:
         st.markdown("""
             <div class="info-card">
-                <h3>Emotion Detection</h3>
-                <p>Type any sentence and our AI identifies the dominant emotion — Joy, Sadness, Anger, Fear, Surprise, Disgust or Neutral.</p>
+                <h3>How It Works</h3>
+                <p>You type any sentence. Our AI model reads it and identifies the dominant emotion using Natural Language Processing.</p>
             </div>
         """, unsafe_allow_html=True)
         st.markdown("""
             <div class="info-card">
                 <h3>Instant Results</h3>
-                <p>Get emotion or news verification results in seconds along with a confidence score and personalized suggestion.</p>
+                <p>Get your emotion detected in seconds along with a confidence score and a personalized suggestion.</p>
             </div>
         """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
             <div class="info-card">
-                <h3>Fake News Detector</h3>
-                <p>Paste any news headline and our AI searches 150,000+ real news sources to verify if it is real or fake.</p>
+                <h3>7 Emotions Detected</h3>
+                <p>Joy, Sadness, Anger, Fear, Surprise, Disgust, Neutral detected with high accuracy.</p>
             </div>
         """, unsafe_allow_html=True)
         st.markdown("""
             <div class="info-card">
-                <h3>Powered by AI + NewsAPI</h3>
-                <p>Uses HuggingFace pretrained models for emotion detection and NewsAPI for real-time news verification.</p>
+                <h3>Pretrained Model</h3>
+                <p>Uses a HuggingFace DistilRoBERTa model trained on thousands of real-world emotional sentences.</p>
             </div>
         """, unsafe_allow_html=True)
 
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("""
         <div style="text-align:center; color:#555555; font-size:0.85rem;">
-            Click <strong style="color:#aaaaaa;">Analyzer</strong> or <strong style="color:#aaaaaa;">Fake News</strong> above to get started
+            Click <strong style="color:#aaaaaa;">Analyzer</strong> above to get started
         </div>
     """, unsafe_allow_html=True)
 
@@ -212,62 +205,11 @@ elif st.session_state.page == 'Analyzer':
                 </div>
             """, unsafe_allow_html=True)
 
-elif st.session_state.page == 'FakeNews':
-    st.markdown("""
-        <div class="hero">
-            <h1>Fake News Detector</h1>
-            <p>Paste any news headline. Our AI searches 150,000+ real news sources to verify it instantly.</p>
-        </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    news_input = st.text_area(
-        label="",
-        placeholder="e.g. NASA confirms water found on Mars...",
-        height=150
-    )
-
-    if st.button("Check News"):
-        if news_input.strip() == "":
-            st.warning("Please enter a news headline first.")
-        else:
-            with st.spinner("Searching news sources worldwide..."):
-                fake_model = load_fake_news_model()
-                label, confidence, total, sources = analyze_news(news_input, fake_model)
-
-            confidence_percent = round(confidence * 100, 2)
-            label_lower = label.lower()
-
-            if label_lower == "real":
-                verdict = "REAL NEWS"
-                icon = "✅"
-                message = f"Found in {total} verified news sources worldwide."
-                sources_text = "Sources: " + ", ".join(sources) if sources else ""
-            elif label_lower == "fake":
-                verdict = "FAKE NEWS"
-                icon = "❌"
-                message = "This headline was not found in any verified news source. It may be false or misleading."
-                sources_text = "Always verify news from trusted sources like BBC, Reuters, or AP News."
-            else:
-                verdict = "UNABLE TO CHECK"
-                icon = "⚠️"
-                message = "Could not connect to news database. Please try again."
-                sources_text = ""
-
-            st.markdown(f"""
-                <div class="result-card">
-                    <div class="emotion-label {label_lower}">{icon} {verdict}</div>
-                    <div class="confidence-text">Confidence: {confidence_percent}% — Based on {total} sources found</div>
-                    <div class="suggestion-box">💡 {message}<br><br>{sources_text}</div>
-                </div>
-            """, unsafe_allow_html=True)
-
 elif st.session_state.page == 'About':
     st.markdown("""
         <div class="hero">
             <h1>About</h1>
-            <p>A Class 12 AI project demonstrating emotion detection and fake news verification using NLP and real-time APIs.</p>
+            <p>A Class 12 AI project demonstrating how machines understand human emotions through text.</p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -276,24 +218,24 @@ elif st.session_state.page == 'About':
     st.markdown("""
         <div class="info-card">
             <h3>Project Goal</h3>
-            <p>To demonstrate how Artificial Intelligence and Natural Language Processing can identify human emotions from text and verify news headlines in real time using live news databases.</p>
+            <p>To demonstrate how Artificial Intelligence and Natural Language Processing can identify human emotions from text input and provide meaningful, context-aware suggestions in real time.</p>
         </div>
     """, unsafe_allow_html=True)
     st.markdown("""
         <div class="info-card">
             <h3>Technology Stack</h3>
-            <p>Python, Streamlit, HuggingFace Transformers, DistilRoBERTa, NewsAPI, NLP</p>
+            <p>Python, Streamlit, HuggingFace Transformers, DistilRoBERTa, NLP</p>
         </div>
     """, unsafe_allow_html=True)
     st.markdown("""
         <div class="info-card">
-            <h3>AI Model Used</h3>
-            <p>Emotion Detection: j-hartmann/emotion-english-distilroberta-base — pretrained on thousands of real-world emotional sentences.<br><br>Fake News: NewsAPI searches 150,000+ verified global news sources in real time.</p>
+            <h3>AI Model</h3>
+            <p>j-hartmann/emotion-english-distilroberta-base — a pretrained transformer model fine-tuned specifically for emotion classification across 7 categories.</p>
         </div>
     """, unsafe_allow_html=True)
     st.markdown("""
         <div class="info-card">
             <h3>Developer</h3>
-            <p>Built as an Artificial Intelligence project for Class XII. Demonstrates real-world application of NLP, deep learning, and live API integration.</p>
+            <p>Built as an Artificial Intelligence project for Class XII. Demonstrates real-world application of NLP and deep learning without any custom model training.</p>
         </div>
     """, unsafe_allow_html=True)
