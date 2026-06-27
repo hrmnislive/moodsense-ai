@@ -16,16 +16,16 @@ st.markdown("""
 
 html, body, [class*="css"], .stApp {
     font-family: 'Outfit', sans-serif !important;
-    background: #070711 !important;
-    color: #e8e8f4 !important;
+    background: #0d0d1a !important;
+    color: #f0f0ff !important;
 }
-.stApp { background: #070711 !important; }
+.stApp { background: #0d0d1a !important; }
 .main .block-container {
     padding: 0 1.5rem 5rem 1.5rem !important;
     max-width: 860px !important;
 }
 
-/* BACKGROUND SYSTEM */
+/* ── BACKGROUND ── */
 .bg-wrap {
     position: fixed; top: 0; left: 0;
     width: 100vw; height: 100vh;
@@ -37,45 +37,45 @@ html, body, [class*="css"], .stApp {
 }
 .o1 {
     width: 700px; height: 700px;
-    background: radial-gradient(circle at 30% 40%, #4c1d95 0%, transparent 65%);
-    top: -200px; left: -220px; opacity: .28;
+    background: radial-gradient(circle at 40% 40%, #6d28d9 0%, transparent 60%);
+    top: -220px; left: -200px; opacity: .38;
     animation-duration: 22s;
 }
 .o2 {
-    width: 550px; height: 550px;
-    background: radial-gradient(circle at 60% 50%, #1e3a8a 0%, transparent 65%);
-    top: 20%; right: -180px; opacity: .22;
+    width: 560px; height: 560px;
+    background: radial-gradient(circle at 50% 50%, #1d4ed8 0%, transparent 60%);
+    top: 15%; right: -180px; opacity: .32;
     animation-duration: 28s; animation-delay: -9s;
 }
 .o3 {
-    width: 450px; height: 450px;
-    background: radial-gradient(circle at 50% 60%, #7e1d6e 0%, transparent 65%);
-    bottom: -100px; left: 25%; opacity: .2;
-    animation-duration: 19s; animation-delay: -5s;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle at 50% 50%, #9d174d 0%, transparent 60%);
+    bottom: -80px; left: 20%; opacity: .28;
+    animation-duration: 20s; animation-delay: -5s;
 }
 .o4 {
-    width: 320px; height: 320px;
-    background: radial-gradient(circle at 50% 50%, #065f46 0%, transparent 65%);
-    top: 55%; left: 5%; opacity: .18;
-    animation-duration: 24s; animation-delay: -14s;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle at 50% 50%, #065f46 0%, transparent 60%);
+    top: 50%; left: 0%; opacity: .24;
+    animation-duration: 25s; animation-delay: -14s;
 }
 @keyframes float {
-    0%   { transform: translate(0, 0) scale(1); }
-    33%  { transform: translate(40px, -30px) scale(1.05); }
-    66%  { transform: translate(-25px, 45px) scale(.95); }
-    100% { transform: translate(0, 0) scale(1); }
+    0%   { transform: translate(0,0) scale(1); }
+    33%  { transform: translate(38px,-28px) scale(1.05); }
+    66%  { transform: translate(-22px,42px) scale(.96); }
+    100% { transform: translate(0,0) scale(1); }
 }
 .grid-bg {
     position: fixed; top: 0; left: 0;
     width: 100vw; height: 100vh;
     pointer-events: none; z-index: 0;
     background-image:
-        linear-gradient(rgba(255,255,255,.016) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.016) 1px, transparent 1px);
-    background-size: 64px 64px;
+        linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+    background-size: 60px 60px;
 }
 
-/* NAV */
+/* ── NAV ── */
 .nav-wrap {
     position: relative; z-index: 100;
     display: flex; justify-content: center;
@@ -83,270 +83,331 @@ html, body, [class*="css"], .stApp {
 }
 .nav-pill {
     display: inline-flex; align-items: center;
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.09);
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.15);
     border-radius: 100px;
     padding: 5px 6px; gap: 3px;
     backdrop-filter: blur(20px);
 }
-
-/* RESET ALL BUTTONS */
 .stButton > button {
     background: transparent !important;
-    color: #6b7280 !important;
+    color: #9ca3af !important;
     border: none !important;
     border-radius: 100px !important;
-    padding: 0.42rem 1.2rem !important;
+    padding: 0.44rem 1.3rem !important;
     font-family: 'Outfit', sans-serif !important;
-    font-size: 0.9rem !important;
+    font-size: 1rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.04em !important;
+    letter-spacing: 0.03em !important;
     cursor: pointer !important;
     transition: all .2s !important;
     width: auto !important;
     min-width: auto !important;
 }
 .stButton > button:hover {
-    background: rgba(255,255,255,.07) !important;
-    color: #f0f0f8 !important;
+    background: rgba(255,255,255,.1) !important;
+    color: #ffffff !important;
     transform: none !important;
     box-shadow: none !important;
 }
 
-/* EYEBROW */
+/* ── EYEBROW ── */
 .eyebrow {
     font-family: 'Space Mono', monospace;
-    font-size: 0.65rem; letter-spacing: .28em;
-    text-transform: uppercase; color: #7c3aed;
-    margin-bottom: 1.3rem;
+    font-size: 0.7rem; letter-spacing: .28em;
+    text-transform: uppercase; color: #a78bfa;
+    margin-bottom: 1.4rem;
     display: flex; align-items: center;
     justify-content: center; gap: .6rem;
 }
 .eyebrow::before, .eyebrow::after {
-    content: ''; width: 28px; height: 1px;
-    background: rgba(124,58,237,.5);
+    content: ''; width: 30px; height: 1px;
+    background: rgba(167,139,250,.5);
 }
 
-/* HOME HERO */
+/* ── HERO ── */
 .hero {
     position: relative; z-index: 10;
     text-align: center; padding: 3.5rem 0 2rem;
 }
 .hero-title {
-    font-size: clamp(2.8rem, 8vw, 5rem);
-    font-weight: 800; line-height: 1.03;
-    letter-spacing: -.04em; margin-bottom: 1.3rem;
-    background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 40%, #93c5fd 80%);
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-weight: 800; line-height: 1.02;
+    letter-spacing: -.04em; margin-bottom: 1.4rem;
+    background: linear-gradient(135deg, #ffffff 0%, #ddd6fe 40%, #bfdbfe 80%, #ffffff 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: grad-shift 7s ease-in-out infinite alternate;
+    animation: grad 7s ease-in-out infinite alternate;
 }
-@keyframes grad-shift {
+@keyframes grad {
     0%   { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
 }
 .hero-sub {
-    font-size: 1.15rem; color: #6b7280;
-    max-width: 440px; margin: 0 auto 2.5rem;
+    font-size: 1.25rem; color: #c4c4d4;
+    max-width: 460px; margin: 0 auto 2.8rem;
     line-height: 1.8; font-weight: 400;
 }
 
-/* STATS BAR */
+/* ── FLOATING WORDS ANIMATION ── */
+.float-words {
+    position: relative; z-index: 10;
+    height: 60px; margin-bottom: 2.5rem;
+    overflow: hidden;
+}
+.float-word {
+    position: absolute; left: 0; right: 0;
+    text-align: center;
+    font-size: 1.4rem; font-weight: 600;
+    opacity: 0;
+    animation: word-cycle 8s ease-in-out infinite;
+}
+.fw1 { color: #fbbf24; animation-delay: 0s; }
+.fw2 { color: #60a5fa; animation-delay: 2s; }
+.fw3 { color: #f87171; animation-delay: 4s; }
+.fw4 { color: #a78bfa; animation-delay: 6s; }
+@keyframes word-cycle {
+    0%   { opacity: 0; transform: translateY(20px); }
+    10%  { opacity: 1; transform: translateY(0); }
+    35%  { opacity: 1; transform: translateY(0); }
+    45%  { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* ── STATS ── */
 .stats {
     display: flex; justify-content: center;
     margin-bottom: 3.5rem;
-    background: rgba(255,255,255,.025);
-    border: 1px solid rgba(255,255,255,.07);
-    border-radius: 16px; overflow: hidden;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 18px; overflow: hidden;
 }
 .stat {
-    flex: 1; padding: 1.3rem 0.5rem;
+    flex: 1; padding: 1.4rem 0.5rem;
     text-align: center;
-    border-right: 1px solid rgba(255,255,255,.06);
+    border-right: 1px solid rgba(255,255,255,.1);
 }
 .stat:last-child { border-right: none; }
 .stat-num {
     font-family: 'Space Mono', monospace;
-    font-size: 1.8rem; font-weight: 700;
-    color: #a78bfa; line-height: 1;
-    margin-bottom: .3rem;
+    font-size: 1.9rem; font-weight: 700;
+    color: #c4b5fd; line-height: 1;
+    margin-bottom: .35rem;
 }
 .stat-lbl {
-    font-size: 0.72rem; color: #374151;
+    font-size: 0.78rem; color: #6b7280;
     letter-spacing: .1em; text-transform: uppercase;
 }
 
-/* EMOTION CHIPS */
+/* ── CHIPS ── */
 .chips {
-    display: flex; flex-wrap: wrap; gap: .5rem;
+    display: flex; flex-wrap: wrap; gap: .55rem;
     justify-content: center;
     margin: 0 0 3.5rem;
     position: relative; z-index: 10;
 }
 .chip {
-    background: rgba(255,255,255,.03);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 100px; padding: .35rem 1rem;
-    font-size: 0.85rem; color: #4b5563;
-    transition: all .25s;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 100px; padding: .42rem 1.1rem;
+    font-size: 0.92rem; color: #c4c4d4;
+    transition: all .25s; cursor: default;
 }
-.chip:hover { border-color: rgba(167,139,250,.35); color: #a78bfa; }
+.chip:hover {
+    border-color: rgba(167,139,250,.5);
+    color: #ddd6fe;
+    background: rgba(167,139,250,.1);
+}
 
-/* FEATURE CARDS */
+/* ── FEATURE CARDS ── */
 .feat-grid {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 1rem; position: relative; z-index: 10;
     margin-bottom: 3rem;
 }
 .feat-card {
-    background: rgba(255,255,255,.025);
-    border: 1px solid rgba(255,255,255,.07);
-    border-radius: 20px; padding: 1.6rem;
-    transition: all .3s ease; position: relative;
-    overflow: hidden;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px; padding: 1.7rem;
+    transition: all .3s ease; position: relative; overflow: hidden;
 }
 .feat-card::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(124,58,237,.06), transparent 60%);
+    background: linear-gradient(135deg, rgba(124,58,237,.1), transparent 60%);
     opacity: 0; transition: opacity .3s; border-radius: 20px;
 }
-.feat-card:hover { border-color: rgba(167,139,250,.22); transform: translateY(-4px); }
+.feat-card:hover {
+    border-color: rgba(167,139,250,.35);
+    transform: translateY(-5px);
+    background: rgba(255,255,255,.07);
+}
 .feat-card:hover::before { opacity: 1; }
 .feat-icon {
-    width: 42px; height: 42px; border-radius: 12px;
-    background: rgba(109,40,217,.12);
-    border: 1px solid rgba(109,40,217,.2);
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(109,40,217,.18);
+    border: 1px solid rgba(109,40,217,.3);
     display: flex; align-items: center;
     justify-content: center;
-    font-size: 1.2rem; margin-bottom: 1rem;
+    font-size: 1.25rem; margin-bottom: 1.1rem;
 }
 .feat-title {
-    font-size: 0.78rem; font-weight: 600;
+    font-size: 0.82rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: .1em;
-    color: #6b7280; margin-bottom: .5rem;
+    color: #9ca3af; margin-bottom: .55rem;
 }
-.feat-body { font-size: 0.9rem; color: #374151; line-height: 1.7; }
+.feat-body { font-size: 0.95rem; color: #8b8ba8; line-height: 1.7; }
 
-/* PAGE HEADER */
+/* ── HOW IT WORKS STEPS ── */
+.steps {
+    position: relative; z-index: 10;
+    margin-bottom: 3.5rem;
+}
+.steps-title {
+    font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .18em;
+    color: #6b7280; text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Space Mono', monospace;
+}
+.step-row {
+    display: flex; align-items: flex-start;
+    gap: 1.2rem; padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.step-row:last-child { border-bottom: none; }
+.step-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; font-weight: 700;
+    color: #7c3aed;
+    background: rgba(124,58,237,.12);
+    border: 1px solid rgba(124,58,237,.25);
+    border-radius: 8px; padding: .3rem .55rem;
+    flex-shrink: 0; margin-top: .1rem;
+    letter-spacing: .05em;
+}
+.step-text {
+    font-size: 1rem; color: #c4c4d4; line-height: 1.65;
+}
+.step-text strong { color: #e8e8f4; font-weight: 600; }
+
+/* ── PAGE HEADER ── */
 .page-top {
     position: relative; z-index: 10;
-    text-align: center; padding: 2.5rem 0 2.5rem;
+    text-align: center; padding: 2.5rem 0 2.8rem;
 }
 .page-title {
-    font-size: clamp(2.2rem, 7vw, 4rem);
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
     font-weight: 800; letter-spacing: -.035em;
-    background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+    background: linear-gradient(135deg, #fff 0%, #c4b5fd 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text; margin-bottom: .55rem;
+    background-clip: text; margin-bottom: .6rem;
 }
 .page-sub {
-    font-size: 1rem; color: #4b5563;
-    max-width: 400px; margin: 0 auto; line-height: 1.8;
+    font-size: 1.1rem; color: #9ca3af;
+    max-width: 420px; margin: 0 auto; line-height: 1.8;
 }
 
-/* TEXTAREA */
+/* ── TEXTAREA ── */
 .stTextArea { position: relative; z-index: 10; }
 .stTextArea > label { display: none !important; }
 .stTextArea > div > div {
-    background: rgba(255,255,255,.03) !important;
-    border: 1px solid rgba(255,255,255,.09) !important;
-    border-radius: 16px !important;
+    background: rgba(255,255,255,.06) !important;
+    border: 1px solid rgba(255,255,255,.15) !important;
+    border-radius: 18px !important;
     transition: all .3s !important;
 }
 .stTextArea > div > div:focus-within {
-    border-color: rgba(124,58,237,.5) !important;
-    box-shadow: 0 0 0 4px rgba(124,58,237,.07) !important;
+    border-color: rgba(139,92,246,.6) !important;
+    box-shadow: 0 0 0 4px rgba(124,58,237,.1) !important;
+    background: rgba(255,255,255,.08) !important;
 }
 .stTextArea textarea {
     background: transparent !important;
-    color: #e8e8f4 !important;
+    color: #f0f0ff !important;
     font-family: 'Outfit', sans-serif !important;
-    font-size: 1.05rem !important;
+    font-size: 1.1rem !important;
     line-height: 1.8 !important;
     caret-color: #a78bfa !important;
     resize: none !important;
 }
-.stTextArea textarea::placeholder { color: #1f2937 !important; }
+.stTextArea textarea::placeholder { color: #4b5563 !important; font-size: 1.05rem !important; }
 
-/* ANALYZE BUTTON */
+/* ── ANALYZE BUTTON ── */
 div[data-testid="stVerticalBlock"] .stButton > button {
-    background: linear-gradient(135deg, #5b21b6, #1e40af) !important;
+    background: linear-gradient(135deg, #6d28d9, #1e40af) !important;
     color: #fff !important;
     border: none !important;
     border-radius: 14px !important;
-    padding: .9rem 2rem !important;
-    font-size: 0.92rem !important;
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
     font-weight: 600 !important;
     letter-spacing: .06em !important;
     text-transform: uppercase !important;
     width: 100% !important;
     transition: all .3s ease !important;
-    box-shadow: 0 4px 24px rgba(91,33,182,.22) !important;
+    box-shadow: 0 4px 28px rgba(109,40,217,.3) !important;
     font-family: 'Outfit', sans-serif !important;
 }
 div[data-testid="stVerticalBlock"] .stButton > button:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 10px 32px rgba(91,33,182,.42) !important;
-    background: linear-gradient(135deg, #6d28d9, #1d4ed8) !important;
+    box-shadow: 0 10px 36px rgba(109,40,217,.5) !important;
+    background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
 }
 
-/* RESULT CARD */
+/* ── RESULT ── */
 .result-wrap {
     margin-top: 2rem; position: relative; z-index: 10;
     animation: reveal .55s cubic-bezier(.16,1,.3,1) both;
 }
 @keyframes reveal {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(26px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 .result-card {
     border-radius: 24px;
-    padding: 2.8rem 2.2rem 2.2rem;
+    padding: 3rem 2.4rem 2.4rem;
     text-align: center;
-    border: 1px solid rgba(255,255,255,.08);
-    background: rgba(10,10,22,.7);
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(18,18,32,.8);
     backdrop-filter: blur(32px);
     position: relative; overflow: hidden;
 }
 .r-glow {
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 75% 55% at 50% 0%, var(--gc), transparent 70%);
     pointer-events: none; border-radius: 24px;
 }
 .r-line {
-    position: absolute; top: 0; left: 12%; right: 12%;
+    position: absolute; top: 0; left: 10%; right: 10%;
     height: 2px; border-radius: 100px;
 }
-.r-emoji { font-size: 3.8rem; line-height: 1; margin-bottom: .5rem; }
+.r-emoji { font-size: 4rem; line-height: 1; margin-bottom: .6rem; }
 .r-name {
     font-family: 'Space Mono', monospace;
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
     font-weight: 700; letter-spacing: -.02em;
-    line-height: 1; margin-bottom: 1.3rem;
+    line-height: 1; margin-bottom: 1.5rem;
 }
 
-/* CONFIDENCE */
-.conf {
-    margin-bottom: 2rem;
-}
+/* ── CONFIDENCE ── */
+.conf { margin-bottom: 2.2rem; }
 .conf-head {
     display: flex; justify-content: space-between;
-    align-items: center; margin-bottom: .5rem;
+    align-items: center; margin-bottom: .55rem;
 }
 .conf-tag {
     font-family: 'Space Mono', monospace;
-    font-size: .6rem; letter-spacing: .16em;
-    text-transform: uppercase; color: #374151;
+    font-size: .65rem; letter-spacing: .16em;
+    text-transform: uppercase; color: #6b7280;
 }
 .conf-pct {
     font-family: 'Space Mono', monospace;
-    font-size: .82rem; font-weight: 700;
+    font-size: .9rem; font-weight: 700;
 }
 .conf-track {
-    width: 100%; height: 5px;
-    background: rgba(255,255,255,.06);
+    width: 100%; height: 6px;
+    background: rgba(255,255,255,.08);
     border-radius: 100px; overflow: hidden;
 }
 .conf-fill {
@@ -354,81 +415,81 @@ div[data-testid="stVerticalBlock"] .stButton > button:hover {
     transition: width 1.2s cubic-bezier(.16,1,.3,1);
 }
 
-/* SUGGESTIONS */
+/* ── SUGGESTIONS ── */
 .sug {
-    background: rgba(91,33,182,.06);
-    border: 1px solid rgba(91,33,182,.14);
-    border-radius: 16px; padding: 1.4rem 1.6rem;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px; padding: 1.5rem 1.7rem;
     text-align: left;
 }
 .sug-tag {
     font-family: 'Space Mono', monospace;
-    font-size: .58rem; letter-spacing: .2em;
-    text-transform: uppercase; color: #7c3aed;
-    margin-bottom: 1rem;
+    font-size: .62rem; letter-spacing: .2em;
+    text-transform: uppercase; color: #a78bfa;
+    margin-bottom: 1.1rem;
     display: flex; align-items: center; gap: .5rem;
 }
 .sug-tag::after {
     content: ''; flex: 1; height: 1px;
-    background: rgba(124,58,237,.18);
+    background: rgba(167,139,250,.2);
 }
 .sug-row {
     display: flex; align-items: flex-start;
-    gap: .7rem; padding: .5rem 0;
-    border-bottom: 1px solid rgba(255,255,255,.04);
-    font-size: 0.95rem; color: #6b7280; line-height: 1.7;
+    gap: .8rem; padding: .55rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    font-size: 1rem; color: #c4c4d4; line-height: 1.75;
 }
 .sug-row:last-child { border-bottom: none; padding-bottom: 0; }
 .sug-dot {
-    width: 5px; height: 5px; border-radius: 50%;
-    flex-shrink: 0; margin-top: .62rem; opacity: .6;
+    width: 6px; height: 6px; border-radius: 50%;
+    flex-shrink: 0; margin-top: .65rem; opacity: .7;
 }
 
-/* ABOUT */
+/* ── ABOUT ── */
 .about-wrap { position: relative; z-index: 10; }
 .about-card {
-    background: rgba(255,255,255,.025);
-    border: 1px solid rgba(255,255,255,.06);
-    border-radius: 18px; padding: 1.6rem 1.7rem;
-    margin-bottom: .9rem; transition: border-color .25s;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px; padding: 1.7rem 1.9rem;
+    margin-bottom: 1rem; transition: border-color .25s;
 }
-.about-card:hover { border-color: rgba(167,139,250,.18); }
+.about-card:hover { border-color: rgba(167,139,250,.25); }
 .about-tag {
     font-family: 'Space Mono', monospace;
-    font-size: .6rem; letter-spacing: .2em;
-    text-transform: uppercase; color: #7c3aed;
-    margin-bottom: .7rem;
+    font-size: .62rem; letter-spacing: .2em;
+    text-transform: uppercase; color: #a78bfa;
+    margin-bottom: .75rem;
 }
 .about-body {
-    font-size: 0.95rem; color: #4b5563; line-height: 1.85;
+    font-size: 1rem; color: #9ca3af; line-height: 1.9;
 }
-.hl { color: #9ca3af; font-weight: 500; }
+.hl { color: #ddd6fe; font-weight: 500; }
 .tech-row {
     display: flex; flex-wrap: wrap;
-    gap: .45rem; margin-top: .8rem;
+    gap: .5rem; margin-top: .9rem;
 }
 .tech-tag {
-    background: rgba(109,40,217,.09);
-    border: 1px solid rgba(109,40,217,.18);
-    border-radius: 8px; padding: .22rem .65rem;
-    font-size: 0.78rem; color: #8b5cf6;
+    background: rgba(109,40,217,.12);
+    border: 1px solid rgba(109,40,217,.25);
+    border-radius: 8px; padding: .28rem .75rem;
+    font-size: 0.82rem; color: #c4b5fd;
     font-family: 'Space Mono', monospace;
 }
 
-/* FOOTER */
+/* ── FOOTER ── */
 .footer {
     position: relative; z-index: 10;
     text-align: center; margin-top: 4rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,.04);
+    border-top: 1px solid rgba(255,255,255,.07);
 }
 .footer-txt {
     font-family: 'Space Mono', monospace;
-    font-size: .6rem; letter-spacing: .2em;
-    text-transform: uppercase; color: #111827;
+    font-size: .62rem; letter-spacing: .2em;
+    text-transform: uppercase; color: #374151;
 }
 
-/* HIDE STREAMLIT CHROME */
+/* ── HIDE STREAMLIT CHROME ── */
 #MainMenu, footer, header, .stDeployButton { visibility: hidden !important; }
 .stSpinner > div { border-color: #7c3aed transparent transparent !important; }
 div[data-testid="stDecoration"] { display: none !important; }
@@ -456,32 +517,40 @@ with c3:
     if st.button("About"): st.session_state.page = 'About'
 st.markdown('</div></div>', unsafe_allow_html=True)
 
-# ══════════════════════════════════════
+# ══════════════════════════════════
 # HOME
-# ══════════════════════════════════════
+# ══════════════════════════════════
 if st.session_state.page == 'Home':
     st.markdown("""
     <div class="hero">
         <div class="eyebrow">NLP &nbsp;·&nbsp; Deep Learning &nbsp;·&nbsp; Real Time</div>
         <h1 class="hero-title">Feel what<br>words carry.</h1>
         <p class="hero-sub">Type anything — a thought, a memory, a rant.<br>MoodSense AI finds the emotion hiding in your words.</p>
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-num">7</div>
-                <div class="stat-lbl">Emotions</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">&lt;1s</div>
-                <div class="stat-lbl">Response</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">98%</div>
-                <div class="stat-lbl">Accuracy</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">0</div>
-                <div class="stat-lbl">Training</div>
-            </div>
+    </div>
+
+    <div class="float-words" style="position:relative;z-index:10;">
+        <div class="float-word fw1">😊 &nbsp; Joy detected — 96.4% confidence</div>
+        <div class="float-word fw2">😢 &nbsp; Sadness detected — 89.2% confidence</div>
+        <div class="float-word fw3">😠 &nbsp; Anger detected — 93.7% confidence</div>
+        <div class="float-word fw4">😨 &nbsp; Fear detected — 91.5% confidence</div>
+    </div>
+
+    <div class="stats" style="position:relative;z-index:10;">
+        <div class="stat">
+            <div class="stat-num">7</div>
+            <div class="stat-lbl">Emotions</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">&lt;1s</div>
+            <div class="stat-lbl">Response</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">98%</div>
+            <div class="stat-lbl">Accuracy</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">0</div>
+            <div class="stat-lbl">Training</div>
         </div>
     </div>
 
@@ -517,11 +586,31 @@ if st.session_state.page == 'Home':
             <div class="feat-body">Personalized multi-line guidance for every emotion detected. Specific, actionable, and actually useful.</div>
         </div>
     </div>
+
+    <div class="steps" style="position:relative;z-index:10;">
+        <div class="steps-title">How it works</div>
+        <div class="step-row">
+            <span class="step-num">01</span>
+            <span class="step-text"><strong>You type anything</strong> — a sentence, a thought, how your day went. No formatting required.</span>
+        </div>
+        <div class="step-row">
+            <span class="step-num">02</span>
+            <span class="step-text"><strong>AI tokenizes your text</strong> — converts your words into numerical tokens the model can process.</span>
+        </div>
+        <div class="step-row">
+            <span class="step-num">03</span>
+            <span class="step-text"><strong>DistilRoBERTa analyzes</strong> — processes tokens through 6 transformer layers and scores all 7 emotions.</span>
+        </div>
+        <div class="step-row">
+            <span class="step-num">04</span>
+            <span class="step-text"><strong>Result appears instantly</strong> — dominant emotion, confidence %, and a personalized suggestion for you.</span>
+        </div>
+    </div>
     """, unsafe_allow_html=True)
 
-# ══════════════════════════════════════
+# ══════════════════════════════════
 # ANALYZER
-# ══════════════════════════════════════
+# ══════════════════════════════════
 elif st.session_state.page == 'Analyzer':
     st.markdown("""
     <div class="page-top">
@@ -533,8 +622,8 @@ elif st.session_state.page == 'Analyzer':
 
     user_input = st.text_area(
         "",
-        placeholder="e.g.  I don't know why but I feel so empty today...",
-        height=160
+        placeholder="e.g.  I am really stressed about my exams right now...",
+        height=165
     )
     go = st.button("Analyze Emotion")
 
@@ -547,32 +636,31 @@ elif st.session_state.page == 'Analyzer':
                 emotion, confidence = analyze_emotion(user_input, mdl)
                 suggestion = get_suggestion(emotion)
 
-            pct = round(confidence * 100, 1)
-            el = emotion.lower()
+            pct  = round(confidence * 100, 1)
+            el   = emotion.lower()
 
             colors = {
-                "joy":      "#f59e0b",
-                "sadness":  "#3b82f6",
-                "anger":    "#ef4444",
-                "fear":     "#a855f7",
-                "surprise": "#f97316",
-                "disgust":  "#10b981",
-                "neutral":  "#6b7280"
+                "joy":      "#fbbf24",
+                "sadness":  "#60a5fa",
+                "anger":    "#f87171",
+                "fear":     "#c084fc",
+                "surprise": "#fb923c",
+                "disgust":  "#34d399",
+                "neutral":  "#94a3b8"
             }
             emojis = {
                 "joy": "😊", "sadness": "😢", "anger": "😠",
                 "fear": "😨", "surprise": "😲", "disgust": "🤢", "neutral": "😐"
             }
-            col  = colors.get(el, "#8b5cf6")
-            emo  = emojis.get(el, "🧠")
+            col = colors.get(el, "#a78bfa")
+            emo = emojis.get(el, "🧠")
 
-            def hex_to_rgb(h):
+            def hex_rgb(h):
                 h = h.lstrip('#')
-                return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+                return tuple(int(h[i:i+2],16) for i in (0,2,4))
+            r,g,b = hex_rgb(col)
 
-            r, g, b = hex_to_rgb(col)
-
-            lines = [l.strip() for l in suggestion.strip().split('\n') if l.strip()]
+            lines    = [l.strip() for l in suggestion.strip().split('\n') if l.strip()]
             sug_html = "".join(
                 f'<div class="sug-row">'
                 f'<div class="sug-dot" style="background:{col};"></div>'
@@ -583,17 +671,17 @@ elif st.session_state.page == 'Analyzer':
             st.markdown(f"""
             <div class="result-wrap">
                 <div class="result-card">
-                    <div class="r-glow" style="--gc: rgba({r},{g},{b},.13);"></div>
-                    <div class="r-line" style="background: linear-gradient(90deg, {col}55, {col}, {col}55);"></div>
+                    <div class="r-glow" style="background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba({r},{g},{b},.18),transparent 70%);"></div>
+                    <div class="r-line" style="background:linear-gradient(90deg,transparent,{col},{col},transparent);"></div>
                     <div class="r-emoji">{emo}</div>
-                    <div class="r-name" style="color: {col};">{emotion.upper()}</div>
+                    <div class="r-name" style="color:{col};">{emotion.upper()}</div>
                     <div class="conf">
                         <div class="conf-head">
                             <span class="conf-tag">Confidence</span>
                             <span class="conf-pct" style="color:{col};">{pct}%</span>
                         </div>
                         <div class="conf-track">
-                            <div class="conf-fill" style="width:{pct}%; background: linear-gradient(90deg, {col}55, {col});"></div>
+                            <div class="conf-fill" style="width:{pct}%;background:linear-gradient(90deg,{col}66,{col});"></div>
                         </div>
                     </div>
                     <div class="sug">
@@ -604,9 +692,9 @@ elif st.session_state.page == 'Analyzer':
             </div>
             """, unsafe_allow_html=True)
 
-# ══════════════════════════════════════
+# ══════════════════════════════════
 # ABOUT
-# ══════════════════════════════════════
+# ══════════════════════════════════
 elif st.session_state.page == 'About':
     st.markdown("""
     <div class="about-wrap">
@@ -620,7 +708,7 @@ elif st.session_state.page == 'About':
             <div class="about-tag">Project Goal</div>
             <div class="about-body">
                 To demonstrate how Artificial Intelligence and Natural Language Processing
-                can detect human emotions from raw text — and surface meaningful,
+                can detect human emotions from raw text and surface meaningful,
                 context-aware guidance through a clean web interface.
             </div>
         </div>
